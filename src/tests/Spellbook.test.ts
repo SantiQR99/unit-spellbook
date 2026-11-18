@@ -29,6 +29,7 @@ test("count by origin", () => {
         book: 1,
         movie: 1,
         videogame: 0,
+        series: 0,
       };
   expect(spellbook.countByOrigin()).toStrictEqual(count);
 });

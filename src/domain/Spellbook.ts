@@ -53,6 +53,7 @@ class Spellbook {
       book: 0,
       movie: 0,
       videogame: 0,
+      series: 0,
     };
     for (const spellIsuppose of this.#spells) {
       counts[spellIsuppose.firstAppearance]++;

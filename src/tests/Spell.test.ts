@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import Spell from "../domain/Spell";
+import Spell, { type FirstAppearance } from "../domain/Spell";
 
 const lumos = new Spell("Lumos", "Ilumina la punta de la varita", "book");
 
@@ -16,21 +16,21 @@ test("describe correctly", () => {
 });
 
 test("empty string on name", () => {
-  let spell: Spell;
-  expect( () => spell = new Spell("", "Ilum", "book")).toThrow();
+  
+  expect( () => new Spell("", "Ilum", "book")).toThrow();
 });
 
 test("empty string on description", () => {
-  let spell: Spell;
-  expect( () => spell = new Spell("agrsgra", "", "book")).toThrow();
+  
+  expect( () => new Spell("agrsgra", "", "book")).toThrow();
 });
 
 test("120 char on description", () => {
-  let spell: Spell;
-  expect( () => spell = new Spell("efdafs", "Iluasdkljvfkasdblsdfnvjasdhvkljbasdhfvcsajdfklashdfhasdfhjlashdfashdfsjadfhjsgadfhjwgadfasdgfhsadvckjhnasdljivbkljsadbvlkjsadbvjhsbdvhjaslidbvsdbvcjhbsdfchbawsjcksdabvkhsadbvasgfsbdfkgfm", "book")).toThrow();
+  
+  expect( () => new Spell("efdafs", "Iluasdkljvfkasdblsdfnvjasdhvkljbasdhfvcsajdfklashdfhasdfhjlashdfashdfsjadfhjsgadfhjwgadfasdgfhsadvckjhnasdljivbkljsadbvlkjsadbvjhsbdvhjaslidbvsdbvcjhbsdfchbawsjcksdabvkhsadbvasgfsbdfkgfm", "book")).toThrow();
 });
 
 test("empty string on appearance", () => {
-  let spell: Spell;
-  expect( () => spell = new Spell("agfasf", "Ilum", [])).toThrow();
+  
+  expect( () => new Spell("agfasf", "Ilum", "" as unknown as FirstAppearance)).toThrow();
 });
